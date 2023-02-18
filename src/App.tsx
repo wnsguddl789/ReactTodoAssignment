@@ -1,11 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import AllListPage from "./components/pages/todo/AllListPage";
-import FinishedListPage from "./components/pages/todo/FinishedListPage";
+import StoreProvider from './models/RootModel';
+
+import AllListPage from './components/pages/todo/AllListPage';
+import FinishedListPage from './components/pages/todo/FinishedListPage';
 
 function App() {
-  // const router = createBrowserRouter([{ path: "/", element: <AllListPage /> }]);
-  // return <RouterProvider router={router} />;
+  const router = createBrowserRouter([{ path: '/', element: <AllListPage /> }]);
+
+  return (
+    <StoreProvider>
+      <RouterProvider router={router} />
+    </StoreProvider>
+  );
 
   // 위를 참고하여 라우터 설정해주세요
   // https://reactrouter.com/en/main/routers/create-browser-router
